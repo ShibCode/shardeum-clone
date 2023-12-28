@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-blue min-h-[200vh];
+}
+
+@layer utilities {
+  .wrapper {
+    @apply flex justify-center;
+  }
+  .contain {
+    @apply w-[90%] max-w-[1440px] flex;
+  }
+}

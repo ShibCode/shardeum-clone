@@ -17,22 +17,23 @@ const links = [
     name: "Community",
     href: "#",
     options: [
-      { name: "Start Building", href: "#" },
-      { name: "Betanet Sphinx", href: "#" },
-      { name: "Dapps Ecosystem", href: "#" },
-      { name: "Docs", href: "#" },
-      { name: "Explorer", href: "#" },
+      { name: "Find your Tribe", href: "#" },
+      { name: "Events", href: "#" },
+      { name: "Careers", href: "#" },
+      { name: "Shardeum Updates", href: "#" },
+      { name: "Community Rewards", href: "#" },
+      { name: "Proof of Community", href: "#" },
     ],
   },
   {
     name: "Resources",
     href: "#",
     options: [
-      { name: "Start Building", href: "#" },
-      { name: "Betanet Sphinx", href: "#" },
-      { name: "Dapps Ecosystem", href: "#" },
-      { name: "Docs", href: "#" },
-      { name: "Explorer", href: "#" },
+      { name: "Whitepaper", href: "#" },
+      { name: "Mainnet Roadmap", href: "#" },
+      { name: "SHM Tokenonmics", href: "#" },
+      { name: "Blog", href: "#" },
+      { name: "FAQ", href: "#" },
     ],
   },
 ];
@@ -40,18 +41,36 @@ const links = [
 const Navbar = () => {
   return (
     <nav className="flex items-center">
-      <ul className="flex text-white text-lg gap-14">
+      <motion.ul className="flex text-white text-lg gap-14">
         {links.map((link, index) => (
-          <NavLink key={index} link={link} />
+          <NavLink key={index} link={link} custom={index} />
         ))}
-      </ul>
+      </motion.ul>
     </nav>
   );
 };
 
 export default Navbar;
 
-const NavLink = ({ link }) => {
+const linkVariants = {
+  show: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { ease: [0.5, 1, 0.89, 1], duration: 0.25, delay: i * 0.05 },
+  }),
+
+  hide: (i) => ({
+    y: -100,
+    opacity: 0,
+    transition: {
+      ease: [0.11, 0, 0.5, 0],
+      duration: 0.25,
+      delay: (links.length - 1 - i) * 0.05,
+    },
+  }),
+};
+
+const NavLink = ({ link, custom }) => {
   const [scope, animate] = useAnimate();
 
   const handleAnimation = async (direction) => {
@@ -84,12 +103,17 @@ const NavLink = ({ link }) => {
       onMouseEnter={() => handleAnimation("enter")}
       onMouseLeave={() => handleAnimation("exit")}
       className="relative group/navLink"
+      variants={linkVariants}
+      custom={custom}
+      initial="hide"
+      animate="show"
+      exit="hide"
     >
       <motion.div className="ball w-[9px] aspect-square bg-white rounded-full absolute left-1/2 -translate-x-1/2 opacity-0 pointer-events-none" />
 
       <motion.a
         href={link.href}
-        className="primary-link flex items-center gap-2"
+        className="primary-link flex items-center gap-2 font-medium"
       >
         {link.name}
         <img
@@ -100,7 +124,7 @@ const NavLink = ({ link }) => {
       </motion.a>
 
       <motion.div className="dropdown absolute left-0 opacity-0 pointer-events-none group-hover/navLink:pointer-events-auto">
-        <ul className="bg-white text-black rounded-[20px] px-8 py-6 w-[240px] flex flex-col gap-2">
+        <ul className="bg-white text-black rounded-[20px] px-8 py-6 w-[240px] flex flex-col gap-2 text-lg font-[400]">
           {link.options.map((opt, i) => (
             <li key={i}>{opt.name}</li>
           ))}

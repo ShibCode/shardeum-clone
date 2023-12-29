@@ -7,6 +7,10 @@ body {
 }
 
 @layer utilities {
+  * {
+    font-family: Helvetica;
+  }
+
   .wrapper {
     @apply flex justify-center;
   }

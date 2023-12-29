@@ -38,7 +38,11 @@ const Logo = ({ isScrolled }) => {
         animate={isScrolled ? "condensed" : "expanded"}
         className="overflow-hidden"
       >
-        <img src="/logo.svg" alt="logo" className="min-w-[218px]" />
+        <img
+          src="/logo.svg"
+          alt="logo"
+          className="min-w-[218px] min-h-[47px]"
+        />
       </motion.div>
     </div>
   );

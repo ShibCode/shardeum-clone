@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import React from "react";
 
 const links = [
@@ -42,24 +42,7 @@ const Navbar = () => {
     <nav className="flex items-center">
       <ul className="flex text-white text-lg gap-14">
         {links.map((link, index) => (
-          <li key={index} className="relative group/navLink">
-            <a href={link.href} className="flex items-center gap-2">
-              {link.name}
-              <img
-                src="/chevron-down.svg"
-                alt="arrow down"
-                className="w-4 translate-y-[1px]"
-              />
-            </a>
-
-            <ul className="flex flex-col gap-2 absolute w-max rounded-[20px] text-black bg-white px-7 py-6 min-w-[220px] text-lg top-[calc(100%+14px)] before:absolute before:w-full before:h-[calc(100%+14px)] before:-top-[14px] before:left-0 pointer-events-none opacity-0 -translate-y-3 group-hover/navLink:opacity-100 group-hover/navLink:pointer-events-auto group-hover/navLink:translate-y-0 transition-all duration-[400ms]">
-              {link.options.map((linkOpt, index) => (
-                <li key={index}>
-                  <a href={linkOpt.href}>{linkOpt.name}</a>
-                </li>
-              ))}
-            </ul>
-          </li>
+          <NavLink key={index} link={link} />
         ))}
       </ul>
     </nav>
@@ -67,3 +50,62 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const NavLink = ({ link }) => {
+  const [scope, animate] = useAnimate();
+
+  const handleAnimation = async (direction) => {
+    if (direction === "enter") {
+      animate(".ball", { opacity: 1, top: [-64, -20] }, { duration: 0.2 });
+
+      animate(
+        ".dropdown",
+        { paddingTop: [4, 16], opacity: 1 },
+        { duration: 0.2, delay: 0.25 }
+      );
+
+      await animate("primary-link", { y: 2 }, { delay: 0.1, duration: 0.2 });
+      animate(".ball", { top: -24 }), { duration: 0.2 };
+
+      await animate("primary-link", { y: 0 }, { duration: 0.2 });
+    } else {
+      animate(".ball", { opacity: 0 });
+      animate(
+        ".dropdown",
+        { paddingTop: [16, 4], opacity: 0 },
+        { duration: 0.2 }
+      );
+    }
+  };
+
+  return (
+    <motion.li
+      ref={scope}
+      onMouseEnter={() => handleAnimation("enter")}
+      onMouseLeave={() => handleAnimation("exit")}
+      className="relative group/navLink"
+    >
+      <motion.div className="ball w-[9px] aspect-square bg-white rounded-full absolute left-1/2 -translate-x-1/2 opacity-0 pointer-events-none" />
+
+      <motion.a
+        href={link.href}
+        className="primary-link flex items-center gap-2"
+      >
+        {link.name}
+        <img
+          src="/chevron-down.svg"
+          alt="arrow down"
+          className="w-4 translate-y-[1px]"
+        />
+      </motion.a>
+
+      <motion.div className="dropdown absolute left-0 opacity-0 pointer-events-none group-hover/navLink:pointer-events-auto">
+        <ul className="bg-white text-black rounded-[20px] px-8 py-6 w-[240px] flex flex-col gap-2">
+          {link.options.map((opt, i) => (
+            <li key={i}>{opt.name}</li>
+          ))}
+        </ul>
+      </motion.div>
+    </motion.li>
+  );
+};

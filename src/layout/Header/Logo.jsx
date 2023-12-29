@@ -24,7 +24,7 @@ const boxVariants = {
 
 const Logo = ({ isScrolled }) => {
   return (
-    <div className="relative z-0 h-[70px] flex items-center">
+    <div className="relative z-0 h-[70px] flex items-center w-[218px]">
       <motion.div
         variants={boxVariants}
         initial="hide"

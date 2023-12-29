@@ -13,7 +13,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className="wrapper fixed w-full">
       <header className="contain py-[50px] gap-14">
         <Logo isScrolled={isScrolled} />
 

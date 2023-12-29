@@ -64,10 +64,10 @@ const NavLink = ({ link }) => {
         { duration: 0.2, delay: 0.25 }
       );
 
-      await animate("primary-link", { y: 2 }, { delay: 0.1, duration: 0.2 });
+      await animate(".primary-link", { y: 2 }, { delay: 0.1, duration: 0.2 });
       animate(".ball", { top: -24 }), { duration: 0.2 };
 
-      await animate("primary-link", { y: 0 }, { duration: 0.2 });
+      await animate(".primary-link", { y: 0 }, { duration: 0.2 });
     } else {
       animate(".ball", { opacity: 0 });
       animate(

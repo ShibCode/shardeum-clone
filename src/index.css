@@ -2,15 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Helvetica Pro Condensed;
+  src: url("/public/helvetica-pro-condensed-bold.otf");
+  font-weight: 700;
+}
+
+* {
+  font-family: Helvetica;
+}
+
 body {
   @apply bg-blue min-h-[200vh];
 }
 
 @layer utilities {
-  * {
-    font-family: Helvetica;
-  }
-
   .wrapper {
     @apply flex justify-center;
   }

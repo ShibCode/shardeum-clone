@@ -1,42 +1,6 @@
-import { motion, useAnimate } from "framer-motion";
 import React from "react";
-
-const links = [
-  {
-    name: "Developers",
-    href: "#",
-    options: [
-      { name: "Start Building", href: "#" },
-      { name: "Betanet Sphinx", href: "#" },
-      { name: "Dapps Ecosystem", href: "#" },
-      { name: "Docs", href: "#" },
-      { name: "Explorer", href: "#" },
-    ],
-  },
-  {
-    name: "Community",
-    href: "#",
-    options: [
-      { name: "Find your Tribe", href: "#" },
-      { name: "Events", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Shardeum Updates", href: "#" },
-      { name: "Community Rewards", href: "#" },
-      { name: "Proof of Community", href: "#" },
-    ],
-  },
-  {
-    name: "Resources",
-    href: "#",
-    options: [
-      { name: "Whitepaper", href: "#" },
-      { name: "Mainnet Roadmap", href: "#" },
-      { name: "SHM Tokenonmics", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "FAQ", href: "#" },
-    ],
-  },
-];
+import { motion, useAnimate } from "framer-motion";
+import links from "./links.json";
 
 const Navbar = () => {
   return (

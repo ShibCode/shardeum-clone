@@ -43,7 +43,7 @@ const Hammenu = () => {
       initial="closed"
       animate="opened"
       exit="closed"
-      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 overflow-hidden"
+      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 overflow-hidden max-h-[85vh] overflow-scroll"
     >
       <div className="p-6 mt-6 w-max flex flex-col gap-5">
         <nav className="flex flex-col gap-3">
@@ -87,6 +87,7 @@ const Link = ({ link, openedDropdown, setOpenedDropdown, index }) => {
       exit="exit"
     >
       <a
+        href={!link.options && opt.href}
         className="flex gap-2 items-center justify-between max-w-[200px] text-black hover:text-blue cursor-pointer transition-colors duration-200 select-none"
         onClick={() => {
           if (openedDropdown === link.name) setOpenedDropdown("");
@@ -103,7 +104,7 @@ const Link = ({ link, openedDropdown, setOpenedDropdown, index }) => {
           viewBox="0 0 24 24"
           strokeWidth="4"
           stroke="currentColor"
-          class={`w-5 translate-y-0.5 transition-transform duration-200 ${
+          class={`transition-transform duration-[250ms] ease-linear translate-y-0.5 w-5 ${
             openedDropdown === link.name ? "rotate-90" : "rotate-0"
           }`}
         >
@@ -118,10 +119,15 @@ const Link = ({ link, openedDropdown, setOpenedDropdown, index }) => {
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: openedDropdown === link.name ? "auto" : 0 }}
+        transition={{ ease: [0.12, 0, 0.39, 0], duration: 0.3 }}
         className="flex flex-col overflow-hidden gap-2.5"
       >
         {link.options.map((opt, index) => (
-          <a className="first:mt-4 text-lg" key={index}>
+          <a
+            href={!opt.options && opt.href}
+            className="text-lg flex items-center gap-2 hover:text-blue cursor-pointer transition-colors duration-200 relative first:mt-4"
+            key={index}
+          >
             {opt.name}
           </a>
         ))}

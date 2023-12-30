@@ -26,17 +26,17 @@ const Icon = ({ isShowingHeader }) => {
   return (
     <div className="min-w-full flex flex-col items-center justify-center gap-[3px] overflow-hidden">
       <div
-        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-300 ${
+        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-[600ms] ${
           isShowingHeader ? "rotate-45 translate-y-[7px]" : ""
         }`}
       ></div>
       <div
-        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-300 ${
+        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-[600ms] ${
           isShowingHeader ? "opacity-0" : "opacity-100"
         }`}
       ></div>
       <div
-        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-300 ${
+        className={`bg-blue h-[4px] w-[40%] rounded-full transition-all duration-[600ms] ${
           isShowingHeader ? "-rotate-45 -translate-y-[7px]" : ""
         }`}
       ></div>

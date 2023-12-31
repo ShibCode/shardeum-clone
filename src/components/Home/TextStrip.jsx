@@ -74,7 +74,7 @@ const TextStrip = () => {
           initial="initial"
           animate="animate"
           className="flex gap-14 whitespace-nowrap items-center pl-14"
-          style={{ translate: "-950px 0px" }}
+          style={{ translate: "-900px 0px" }}
         >
           {stripText.map((text, i) => (
             <React.Fragment key={i}>
@@ -93,7 +93,7 @@ const TextStrip = () => {
           initial="initial"
           animate="animate"
           className="flex gap-14 whitespace-nowrap items-center pl-14"
-          style={{ translate: "-950px 0px" }}
+          style={{ translate: "-900px 0px" }}
         >
           {stripText.map((text, i) => (
             <React.Fragment key={i}>

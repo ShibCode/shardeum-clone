@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import links from "./links.json";
-import Button from "../../components/Button";
+import Button from "../../components/UI/Button";
 
 const hammenuVariants = {
   opened: {

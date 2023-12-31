@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
-import Button from "../../components/Button";
+import Button from "../../components/UI/Button";
 import { AnimatePresence, motion } from "framer-motion";
 import HamButton from "./HamButton";
 import Hammenu from "./Hammenu";
@@ -26,8 +26,8 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="wrapper fixed w-full">
-      <header className="contain py-[50px] gap-14">
+    <div className="wrapper fixed w-full top-0">
+      <header className="contain h-[170px] items-center gap-14">
         <Logo isScrolled={isScrolled} />
 
         <div className="flex-1 flex justify-between items-center">

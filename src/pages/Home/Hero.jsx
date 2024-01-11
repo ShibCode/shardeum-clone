@@ -1,5 +1,5 @@
 import React from "react";
-import TextStrip from "../../components/Home/TextStrip";
+import TextStrip from "./TextStrip";
 
 const Hero = () => {
   return (

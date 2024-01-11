@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
-import Button from "../../components/UI/Button";
+import Button from "../../components/Button";
 import { AnimatePresence, motion } from "framer-motion";
 import HamButton from "./HamButton";
 import Hammenu from "./Hammenu";

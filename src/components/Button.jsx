@@ -13,7 +13,7 @@ const Button = ({ text, maxWidth = "none" }) => {
         {text}
       </div>
 
-      <div className="rounded-r-[20px] group-hover:rounded-[50%] bg-white w-[68px] p-2.5 group-hover:translate-x-2 transition-all duration-500 shadow-btn border-blue border-r-2 border-t-2 border-b-2 group-hover:border-l-2">
+      <div className="rounded-r-[20px] group-hover:rounded-[50%] bg-white w-[68px] p-2.5 group-hover:translate-x-1.5 transition-all duration-500 shadow-btn border-blue border-r-2 border-t-2 border-b-2 group-hover:border-l-2">
         <div className="bg-green h-full grid place-items-center rounded-[15px] group-hover:rounded-[50%]">
           <img src="/chevron-right.svg" alt="arrow right" className="w-4" />
         </div>

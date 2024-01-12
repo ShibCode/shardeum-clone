@@ -5,7 +5,7 @@ import links from "./links.json";
 const Navbar = () => {
   return (
     <nav className="flex items-center">
-      <motion.ul className="flex text-white text-lg gap-14">
+      <motion.ul className="flex text-lg gap-14">
         {links.map((link, index) => (
           <NavLink key={index} link={link} custom={index} />
         ))}
@@ -20,7 +20,7 @@ const linkVariants = {
   show: (i) => ({
     y: 0,
     opacity: 1,
-    transition: { ease: [0.5, 1, 0.89, 1], duration: 0.25, delay: i * 0.05 },
+    transition: { ease: [0.5, 1, 0.89, 1], duration: 0.3, delay: i * 0.05 },
   }),
 
   hide: (i) => ({
@@ -28,7 +28,7 @@ const linkVariants = {
     opacity: 0,
     transition: {
       ease: [0.11, 0, 0.5, 0],
-      duration: 0.25,
+      duration: 0.3,
       delay: (links.length - 1 - i) * 0.05,
     },
   }),

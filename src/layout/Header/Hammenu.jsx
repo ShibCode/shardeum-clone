@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import links from "./links.json";
-import Button from "../../components/UI/Button";
+import Button from "../../components/Button";
 
 const hammenuVariants = {
   opened: {
@@ -43,7 +43,7 @@ const Hammenu = () => {
       initial="closed"
       animate="opened"
       exit="closed"
-      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 overflow-hidden max-h-[85vh] overflow-scroll"
+      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 max-h-[85vh] overflow-hidden"
     >
       <div className="p-6 mt-6 w-max flex flex-col gap-5">
         <nav className="flex flex-col gap-3">

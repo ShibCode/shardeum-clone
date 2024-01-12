@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: Helvetica Pro Condensed;
-  src: url("/public/helvetica-pro-condensed-bold.otf");
+  src: url("/helvetica-pro-condensed-bold.otf");
   font-weight: 700;
 }
 
@@ -13,7 +13,7 @@
 }
 
 body {
-  @apply bg-blue min-h-[200vh];
+  @apply bg-blue text-white;
 }
 
 @layer utilities {
@@ -22,5 +22,8 @@ body {
   }
   .contain {
     @apply w-[90%] max-w-[1440px] flex;
+  }
+  .para-1 {
+    @apply text-[30px] leading-[1.25];
   }
 }

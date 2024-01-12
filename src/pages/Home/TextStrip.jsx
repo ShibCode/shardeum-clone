@@ -28,7 +28,7 @@ const TextStrip = () => {
   }, []);
 
   return (
-    <div className="flex relative max-w-[2500px] -rotate-[5deg] pb-10 min-w-[700px] mx-auto mt-[360px] mb-20">
+    <div className="flex relative -rotate-[5deg] min-w-[700px]">
       <div className="bg-peachGreenGr flex min-w-[calc(45%+100px)] -translate-x-[100px] overflow-hidden h-[262px] items-center border-y-2 border-black translate-y-10">
         <motion.div
           variants={stripVariants}
@@ -37,7 +37,7 @@ const TextStrip = () => {
         >
           {stripText.map((text, index) => (
             <React.Fragment key={index}>
-              <span className="font-helveticaProCn text-[117px] text-blue">
+              <span className="font-helveticaProCn text-[100px] text-blue">
                 {text}
               </span>
               <img src="/blue-logo.svg" alt="seperator" />
@@ -51,7 +51,7 @@ const TextStrip = () => {
         >
           {stripText.map((text, index) => (
             <React.Fragment key={index}>
-              <span className="font-helveticaProCn text-[117px] text-blue">
+              <span className="font-helveticaProCn text-[100px] text-blue">
                 {text}
               </span>
               <img src="/blue-logo.svg" alt="seperator" />
@@ -59,7 +59,7 @@ const TextStrip = () => {
           ))}
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-[45%] -translate-x-[calc(100%-1px)]">
+      <div className="absolute -bottom-10 left-[45%] -translate-x-[calc(100%-1px)]">
         <img
           src="/text-strip-3d-effect.svg"
           alt="..."
@@ -78,7 +78,7 @@ const TextStrip = () => {
         >
           {stripText.map((text, index) => (
             <React.Fragment key={index}>
-              <span className="font-helveticaProCn text-[117px] text-blue">
+              <span className="font-helveticaProCn text-[100px] text-blue">
                 {text}
               </span>
               <img src="/blue-logo.svg" alt="seperator" />
@@ -95,7 +95,7 @@ const TextStrip = () => {
         >
           {stripText.map((text, index) => (
             <React.Fragment key={index}>
-              <span className="font-helveticaProCn text-[117px] text-blue">
+              <span className="font-helveticaProCn text-[100px] text-blue">
                 {text}
               </span>
               <img src="/blue-logo.svg" alt="seperator" />

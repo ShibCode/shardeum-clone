@@ -2,28 +2,55 @@ import React from "react";
 import TextStrip from "./TextStrip";
 import Button from "../../components/Button";
 import HeroBg from "./HeroBg";
+import { motion } from "framer-motion";
+
+const container = {
+  animate: { transition: { staggerChildren: 0.2 } },
+};
+
+const heroContentVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+};
 
 const Hero = () => {
   return (
-    <div className="pt-[200px] overflow-x-clip pb-16 relative z-0">
+    <motion.div
+      variants={container}
+      initial="initial"
+      animate="animate"
+      className="pt-[200px] overflow-x-clip pb-16 relative z-0"
+    >
       <HeroBg />
 
       <div className="flex flex-col items-center text-center max-w-[1200px] w-full mx-auto gap-8">
-        <img src="/logo-text.svg" alt="Shardeum" />
+        <motion.img
+          variants={heroContentVariants}
+          src="/logo-text.svg"
+          alt="Shardeum"
+        />
 
-        <h1 className="text-[185px] font-helveticaProCn leading-[0.85] tracking-tight">
-          Decentralization for everyone
+        <h1 className="text-[185px] leading-[0.85] tracking-tight flex flex-wrap justify-center gap-x-10">
+          {"Decentralization for everyone".split(" ").map((item, index) => (
+            <motion.span
+              variants={heroContentVariants}
+              key={index}
+              className="font-helveticaProCn inline-block"
+            >
+              {item}{" "}
+            </motion.span>
+          ))}
         </h1>
 
-        <p className="para-1 mt-4">
+        <motion.p variants={heroContentVariants} className="para-1 mt-2">
           Fast, scalable, and forever fair, Shardeum is an EVM-based, truly
           decentralized L1.
-        </p>
+        </motion.p>
 
-        <div className="flex gap-8">
-          <Button text="Claim Testnet SHM" />
-          <Button text="Join Betanet Sphinx" />
-        </div>
+        <motion.div className="flex gap-8">
+          <Button text="Claim Testnet SHM" variants={heroContentVariants} />
+          <Button text="Join Betanet Sphinx" variants={heroContentVariants} />
+        </motion.div>
       </div>
 
       <TextStrip
@@ -52,7 +79,7 @@ const Hero = () => {
 
         <Button text="Join our Discord" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

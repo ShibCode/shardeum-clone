@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const shapeTransition = (delay) => ({
   type: "spring",
@@ -9,19 +9,37 @@ const shapeTransition = (delay) => ({
 });
 
 const HeroBg = () => {
+  const container = useRef();
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"],
+  });
+
+  const translate1 = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+  const translate2 = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const translate3 = useTransform(scrollYProgress, [0, 1], [0, 375]);
+  const translate4 = useTransform(scrollYProgress, [0, 1], [0, 350]);
+  const translate5 = useTransform(scrollYProgress, [0, 1], [0, 750]);
+
   return (
-    <div className="absolute inset-0 min-w-[2050px] max-w-[2050px] -z-10 left-1/2 -translate-x-1/2">
+    <div
+      ref={container}
+      className="absolute inset-0 min-w-[2050px] max-w-[2050px] -z-10 left-1/2 -translate-x-1/2"
+    >
       <div className="absolute w-full h-[1000px] grid place-items-center">
         <motion.img
           initial={{ opacity: 0 }}
           animate={{ top: 120, left: 0, opacity: 1 }}
+          style={{ translateY: translate1 }}
           transition={shapeTransition(0)}
           src="/background objects/hero-1.png"
           alt="shape"
           className="w-[448px] absolute z-20"
         />
-        <svg
+        <motion.svg
           width="447"
+          style={{ translateY: translate1 }}
           height="499"
           viewBox="0 0 447 499"
           fill="none"
@@ -36,25 +54,28 @@ const HeroBg = () => {
             stroke="black"
             strokeWidth="2"
           ></motion.path>
-        </svg>
+        </motion.svg>
         <motion.img
           initial={{ opacity: 0 }}
           animate={{ top: 745, left: 245, opacity: 1 }}
-          transition={shapeTransition(0.1)}
+          style={{ translateY: translate1 }}
+          transition={shapeTransition(0.2)}
           src="/background objects/hero-2.png"
           alt="shape"
           className="w-[390px] absolute"
         />
 
         <motion.img
+          style={{ translateY: translate2 }}
           initial={{ opacity: 0 }}
           animate={{ top: -100, right: 615, opacity: 1 }}
-          transition={shapeTransition(0.15)}
+          transition={shapeTransition(0.05)}
           src="/background objects/hero-3.png"
           alt="shape"
           className="w-[307px] absolute"
         />
-        <svg
+        <motion.svg
+          style={{ translateY: translate2 }}
           viewBox="0 0 483 312"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -68,17 +89,19 @@ const HeroBg = () => {
             stroke="black"
             strokeWidth="2"
           ></motion.path>
-        </svg>
+        </motion.svg>
 
         <motion.img
+          style={{ translateY: translate3 }}
           initial={{ opacity: 0 }}
           animate={{ top: 135, right: -7, opacity: 1 }}
-          transition={shapeTransition(0.2)}
+          transition={shapeTransition(0.1)}
           src="/background objects/hero-4.png"
           alt="shape"
           className="w-[378px] absolute"
         />
-        <svg
+        <motion.svg
+          style={{ translateY: translate3 }}
           width="124"
           height="526"
           viewBox="0 0 124 526"
@@ -94,16 +117,18 @@ const HeroBg = () => {
             stroke="black"
             stroke-width="2"
           ></motion.path>
-        </svg>
+        </motion.svg>
         <motion.img
           initial={{ opacity: 0 }}
           animate={{ top: 650, right: -140, opacity: 1 }}
-          transition={shapeTransition(0.25)}
+          style={{ translateY: translate3 }}
+          transition={shapeTransition(0.15)}
           src="/background objects/hero-5.png"
           alt="shape"
           className="w-[731px] absolute"
         />
-        <svg
+        <motion.svg
+          style={{ translateY: translate4 }}
           width="559"
           height="217"
           viewBox="0 0 559 217"
@@ -119,20 +144,22 @@ const HeroBg = () => {
             stroke="black"
             stroke-width="2"
           ></motion.path>
-        </svg>
+        </motion.svg>
         <motion.img
+          style={{ translateY: translate4 }}
           initial={{ opacity: 0 }}
           animate={{ top: 626, right: 694, opacity: 1 }}
-          transition={shapeTransition(0.3)}
+          transition={shapeTransition(0.2)}
           src="/background objects/hero-6.png"
           alt="shape"
           className="w-[614px] absolute"
         />
 
         <motion.img
+          style={{ translateY: translate5 }}
           initial={{ opacity: 0 }}
           animate={{ top: 410, right: -90, opacity: 1 }}
-          transition={shapeTransition(0.35)}
+          transition={shapeTransition(0.225)}
           src="/background objects/hero-7.png"
           alt="shape"
           className="w-[392px] absolute"

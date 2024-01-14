@@ -1,7 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Button = ({ text, maxWidth = "none", variants = false }) => {
+const Button = ({
+  text,
+  maxWidth = "none",
+  variants = false,
+  custom,
+  initial,
+  animate,
+}) => {
   return variants === false ? (
     <a
       href="#"
@@ -23,6 +30,9 @@ const Button = ({ text, maxWidth = "none", variants = false }) => {
   ) : (
     <motion.a
       variants={variants}
+      custom={custom}
+      initial={initial}
+      animate={animate}
       href="#"
       className="rounded-[20px] flex group [&_*]:transition-all [&_*]:duration-[400ms] [&_*]:ease-out"
     >

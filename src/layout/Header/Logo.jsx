@@ -29,7 +29,7 @@ const Logo = ({ isScrolled }) => {
         variants={boxVariants}
         initial="hide"
         animate={isScrolled ? "show" : "hide"}
-        className="absolute w-[68px] h-[70px] -left-[9px] bg-[red] -z-10 rounded-[20px]"
+        className="absolute w-[68px] h-[70px] -left-[9px] bg-blue -z-10 rounded-[20px]"
       ></motion.div>
 
       <motion.div

@@ -125,7 +125,7 @@ const Link = ({ link, openedDropdown, setOpenedDropdown, index }) => {
         {link.options.map((opt, index) => (
           <a
             href={!opt.options && opt.href}
-            className="text-lg flex items-center gap-2 hover:text-blue cursor-pointer transition-colors duration-200 relative first:mt-4"
+            className="text-lg flex items-center gap-2 text-black hover:text-blue cursor-pointer transition-colors duration-200 relative first:mt-4 last:mb-4"
             key={index}
           >
             {opt.name}

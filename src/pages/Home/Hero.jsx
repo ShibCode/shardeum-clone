@@ -4,28 +4,26 @@ import Button from "../../components/Button";
 import HeroBg from "./HeroBg";
 import { motion } from "framer-motion";
 
-const container = {
-  animate: { transition: { staggerChildren: 0.2 } },
-};
-
 const heroContentVariants = {
-  initial: { opacity: 0, y: 50 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, y: 30 },
+  animate: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, delay: 0.7 + i * 0.15 },
+  }),
 };
 
 const Hero = () => {
   return (
-    <motion.div
-      variants={container}
-      initial="initial"
-      animate="animate"
-      className="pt-[200px] overflow-x-clip pb-16 relative z-0"
-    >
+    <motion.div className="pt-[200px] overflow-x-clip pb-16 relative z-0">
       <HeroBg />
 
       <div className="flex flex-col items-center text-center max-w-[1200px] w-full mx-auto gap-8">
         <motion.img
           variants={heroContentVariants}
+          custom={0}
+          initial="initial"
+          animate="animate"
           src="/logo-text.svg"
           alt="Shardeum"
         />
@@ -34,6 +32,9 @@ const Hero = () => {
           {"Decentralization for everyone".split(" ").map((item, index) => (
             <motion.span
               variants={heroContentVariants}
+              custom={1}
+              initial="initial"
+              animate="animate"
               key={index}
               className="font-helveticaProCn inline-block"
             >
@@ -42,14 +43,32 @@ const Hero = () => {
           ))}
         </h1>
 
-        <motion.p variants={heroContentVariants} className="para-1 mt-2">
+        <motion.p
+          variants={heroContentVariants}
+          custom={2}
+          initial="initial"
+          animate="animate"
+          className="para-1 mt-2"
+        >
           Fast, scalable, and forever fair, Shardeum is an EVM-based, truly
           decentralized L1.
         </motion.p>
 
         <motion.div className="flex gap-8">
-          <Button text="Claim Testnet SHM" variants={heroContentVariants} />
-          <Button text="Join Betanet Sphinx" variants={heroContentVariants} />
+          <Button
+            text="Claim Testnet SHM"
+            variants={heroContentVariants}
+            custom={3}
+            initial="initial"
+            animate="animate"
+          />
+          <Button
+            text="Join Betanet Sphinx"
+            variants={heroContentVariants}
+            custom={4}
+            initial="initial"
+            animate="animate"
+          />
         </motion.div>
       </div>
 
@@ -64,7 +83,9 @@ const Hero = () => {
 
       <div className="flex flex-col items-center text-center gap-4">
         <div className="max-w-[790px] w-[80%] relative">
-          <img src="/triangle.png" alt="triangle" className="w-full" />
+          <div className="w-full aspect-[1.5364]">
+            <img src="/triangle.png" alt="triangle" className="w-full" />
+          </div>
           <img
             src="/triangle-shadow.svg"
             alt="shadow"

@@ -16,9 +16,9 @@ const HeroBg = () => {
     offset: ["start start", "end start"],
   });
 
-  const translate1 = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+  const translate1 = useTransform(scrollYProgress, [0, 1], [0, 1080]);
   const translate2 = useTransform(scrollYProgress, [0, 1], [0, 500]);
-  const translate3 = useTransform(scrollYProgress, [0, 1], [0, 375]);
+  const translate3 = useTransform(scrollYProgress, [0, 1], [0, 425]);
   const translate4 = useTransform(scrollYProgress, [0, 1], [0, 350]);
   const translate5 = useTransform(scrollYProgress, [0, 1], [0, 750]);
 
@@ -163,6 +163,68 @@ const HeroBg = () => {
           src="/background objects/hero-7.png"
           alt="shape"
           className="w-[392px] absolute"
+        />
+        <motion.svg
+          style={{ translateY: translate4 }}
+          width="494"
+          height="655"
+          viewBox="0 0 494 655"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute top-[970px] left-[780px]"
+        >
+          <path
+            class="path-draw"
+            d="M223.098 1.46152C-521.495 139.697 889.271 343.161 377.499 653.568"
+            stroke="black"
+            strokeWidth="2"
+            strokeDasharray="none"
+            strokeDashoffset="0px"
+          ></path>
+        </motion.svg>
+
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 689.4 653.3"
+          xmlSpace="preserve"
+          className="w-[680px] absolute top-[1875px] left-[70px]"
+        >
+          <path
+            fill="none"
+            stroke="#000"
+            strokeWidth="2px"
+            d="M688.5,0.5C527.1,316.3-478.7,12.1,282.6,652.5"
+          />
+        </svg>
+        <img
+          src="/background objects/hero-10.png"
+          alt="shape"
+          className="w-[392px] absolute top-[1850px] left-[175px]"
+        />
+
+        <svg
+          width="364"
+          height="135"
+          viewBox="0 0 364 135"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute top-[2210px] left-[35%]"
+        >
+          <path
+            d="M0.894954 133.768C224.694 27.7502 367.418 -101.609 362.278 133.768"
+            stroke="black"
+            strokeWidth="2"
+          />
+        </svg>
+
+        <img
+          src="/background objects/hero-11.png"
+          alt="shape"
+          className="w-[307px] absolute top-[2050px] right-[185px]"
         />
       </div>
     </div>

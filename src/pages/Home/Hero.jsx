@@ -15,7 +15,7 @@ const heroContentVariants = {
 
 const Hero = () => {
   return (
-    <motion.div className="pt-[200px] overflow-x-clip pb-16 relative z-0">
+    <div className="pt-[200px] overflow-x-clip pb-16 relative z-0 overflow-hidden">
       <HeroBg />
 
       <div className="flex flex-col items-center text-center max-w-[1200px] w-full mx-auto gap-8">
@@ -100,7 +100,7 @@ const Hero = () => {
 
         <Button text="Join our Discord" />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

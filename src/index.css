@@ -24,6 +24,6 @@ body {
     @apply w-[90%] max-w-[1440px] flex;
   }
   .para-1 {
-    @apply text-[30px] leading-[1.25];
+    @apply text-[20px] md:text-[24px] lg:text-[26px] 2xl:text-[30px] leading-[1.25];
   }
 }

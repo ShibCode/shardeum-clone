@@ -11,6 +11,7 @@ const App = () => {
     <>
       <Header />
       <Home />
+      <div className="h-[100vh] bg-white"></div>
     </>
   );
 };

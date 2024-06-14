@@ -43,7 +43,7 @@ const Hammenu = () => {
       initial="closed"
       animate="opened"
       exit="closed"
-      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 max-h-[85vh] overflow-hidden"
+      className="absolute right-0 top-0 rounded-[20px] bg-white -z-10 max-h-[85vh] overflow-auto"
     >
       <div className="p-6 mt-6 w-max flex flex-col gap-5">
         <nav className="flex flex-col gap-3">

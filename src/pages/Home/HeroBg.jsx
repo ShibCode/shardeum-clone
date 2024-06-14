@@ -21,6 +21,9 @@ const HeroBg = () => {
   const translate3 = useTransform(scrollYProgress, [0, 1], [0, 425]);
   const translate4 = useTransform(scrollYProgress, [0, 1], [0, 350]);
   const translate5 = useTransform(scrollYProgress, [0, 1], [0, 750]);
+  const translate6 = useTransform(scrollYProgress, [0, 1], [-175, 100]);
+  const translate7 = useTransform(scrollYProgress, [0, 1], [-400, 200]);
+  const translate8 = useTransform(scrollYProgress, [0, 1], [-270, 150]);
 
   return (
     <div
@@ -183,7 +186,8 @@ const HeroBg = () => {
           ></path>
         </motion.svg>
 
-        <svg
+        <motion.svg
+          style={{ translateY: translate6 }}
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -199,8 +203,9 @@ const HeroBg = () => {
             strokeWidth="2px"
             d="M688.5,0.5C527.1,316.3-478.7,12.1,282.6,652.5"
           />
-        </svg>
-        <img
+        </motion.svg>
+        <motion.img
+          style={{ translateY: translate7 }}
           src="/background objects/hero-10.png"
           alt="shape"
           className="w-[392px] absolute top-[1850px] left-[175px]"
@@ -221,7 +226,8 @@ const HeroBg = () => {
           />
         </svg>
 
-        <img
+        <motion.img
+          style={{ translateY: translate8 }}
           src="/background objects/hero-11.png"
           alt="shape"
           className="w-[307px] absolute top-[2050px] right-[185px]"

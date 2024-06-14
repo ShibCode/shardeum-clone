@@ -14,6 +14,19 @@ const menuVariants = {
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(window.scrollY > 0);
   const [isShowingHeader, setIsShowingHeader] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    window.matchMedia("(min-width: 1080px)").matches
+  );
+
+  const handleResize = () => {
+    const isDesktop = window.matchMedia("(min-width: 1050px)").matches;
+    setIsDesktop(isDesktop);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleScroll = () => {
     if (window.scrollY === 0) setIsShowingHeader(false);
@@ -27,16 +40,16 @@ const Header = () => {
 
   return (
     <div className="wrapper fixed w-full top-0 z-20">
-      <header className="contain h-[170px] items-center gap-14">
+      <header className="contain h-[90px] xs:h-[100px] sm:h-[110px] md:h-[130px] lg:h-[170px] items-center gap-8 xl:gap-14">
         <Logo isScrolled={isScrolled} />
 
         <div className="flex-1 flex justify-between items-center">
           <AnimatePresence initial={false}>
-            {!isScrolled && <Navbar />}
+            {!isScrolled && isDesktop && <Navbar />}
           </AnimatePresence>
 
           <AnimatePresence initial={false} mode="wait">
-            {isScrolled ? (
+            {isScrolled || !isDesktop ? (
               <motion.div
                 variants={menuVariants}
                 initial="initial"

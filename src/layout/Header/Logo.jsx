@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 const logoVariants = {
   expanded: {
-    width: "218px",
+    width: "1em",
     transition: { ease: [0.12, 0, 0.39, 0], duration: 0.35 },
   },
   condensed: {
-    width: "50px",
+    width: "0.24em",
     transition: { ease: [0.12, 0, 0.39, 0], duration: 0.35, delay: 0.2 },
   },
 };
@@ -24,24 +24,24 @@ const boxVariants = {
 
 const Logo = ({ isScrolled }) => {
   return (
-    <div className="relative z-0 h-[70px] flex items-center w-[218px]">
+    <div className="relative z-0 h-[70px] flex items-center w-[170px] xs:w-[190px] md:w-[218px]">
       <motion.div
         variants={boxVariants}
         initial="hide"
         animate={isScrolled ? "show" : "hide"}
-        className="absolute w-[68px] h-[70px] -left-[9px] bg-blue -z-10 rounded-[20px]"
+        className="absolute w-[68px] h-[70px] -left-[9px] bg-blue -z-10 rounded-[20px] cursor-pointer"
       ></motion.div>
 
       <motion.div
         variants={logoVariants}
         initial="expanded"
         animate={isScrolled ? "condensed" : "expanded"}
-        className="overflow-hidden"
+        className="overflow-hidden text-[170px] xs:text-[190px] md:text-[218px] cursor-pointer"
       >
         <img
           src="/logo.svg"
           alt="logo"
-          className="min-w-[218px] min-h-[47px]"
+          className="min-w-[170px] max-w-[170px] xs:min-w-[190px] xs:max-w-[190px] md:min-w-[218px] md:max-w-[218px]"
         />
       </motion.div>
     </div>

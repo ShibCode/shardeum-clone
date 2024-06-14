@@ -5,7 +5,7 @@ import links from "./links.json";
 const Navbar = () => {
   return (
     <nav className="flex items-center">
-      <motion.ul className="flex text-lg gap-14">
+      <motion.ul className="flex text-lg gap-8 xl:gap-14">
         {links.map((link, index) => (
           <NavLink key={index} link={link} custom={index} />
         ))}
@@ -88,9 +88,11 @@ const NavLink = ({ link, custom }) => {
       </motion.a>
 
       <motion.div className="dropdown absolute left-0 opacity-0 pointer-events-none group-hover/navLink:pointer-events-auto">
-        <ul className="bg-white text-black rounded-[20px] px-8 py-6 w-[240px] flex flex-col gap-2 text-lg font-[400]">
+        <ul className="bg-white text-black rounded-[20px] px-8 py-6 w-[240px] flex flex-col gap-2 text-lg font-normal">
           {link.options.map((opt, i) => (
-            <li key={i}>{opt.name}</li>
+            <li key={i} className="cursor-pointer">
+              {opt.name}
+            </li>
           ))}
         </ul>
       </motion.div>
